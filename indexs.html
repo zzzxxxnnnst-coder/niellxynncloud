@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Member Gen 2 - ETHRÉNAL`AURORA</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Poppins & Cinzel -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0a0a0f',
+                        auroraCyan: '#00ffff',
+                        neonPurple: '#8a2be2',
+                        goldColor: '#ffd700',
+                        glassDark: 'rgba(15, 15, 25, 0.75)',
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        poppins: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a0f;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+        .glass-card {
+            background: rgba(20, 20, 35, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .glass-card:hover {
+            border-color: rgba(0, 255, 255, 0.6);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+        }
+        .aurora-glow {
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 20px rgba(138, 43, 226, 0.7);
+        }
+        .gold-glow {
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+        }
+        .btn-aurora {
+            background: linear-gradient(135deg, #8a2be2, #00ffff);
+            transition: all 0.3s ease;
+        }
+        .btn-aurora:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #8a2be2;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00ffff;
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-white antialiased selection:bg-auroraCyan selection:text-black">
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-darkBg transition-opacity duration-500">
+        <div class="relative w-24 h-24 mb-4">
+            <div class="absolute inset-0 rounded-full border-4 border-neonPurple border-t-auroraCyan animate-spin"></div>
+            <div class="absolute inset-3 rounded-full border-4 border-goldColor border-b-transparent animate-ping opacity-50"></div>
+            <div class="flex items-center justify-center h-full font-cinzel font-bold text-xl text-goldColor">E`A</div>
+        </div>
+        <p class="font-cinzel text-auroraCyan tracking-widest text-sm animate-pulse">ETHRÉNAL`AURORA</p>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6285602832687?text=Halo%20Founder%20ETHRÉNAL%60AURORA,%20saya%20tertarik%20ingin%20bergabung%20dengan%20Squad." target="_blank" class="fixed bottom-6 right-6 z-40 bg-green-600 hover:bg-green-500 text-white p-4 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 animate-bounce">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Sticky Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-40 bg-darkBg/80 backdrop-blur-md border-b border-neonPurple/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-neonPurple to-auroraCyan flex items-center justify-center font-cinzel font-bold text-black text-lg shadow-lg">E`A</div>
+                <div>
+                    <span class="font-cinzel font-bold text-lg md:text-xl tracking-wider text-auroraCyan">ETHRÉNAL<span class="text-goldColor">`</span>AURORA</span>
+                    <p class="text-[10px] text-gray-400 tracking-widest">SQ: 211 Shionyou • ID: 13137790</p>
+                </div>
+            </a>
+            <div class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="#hero" class="hover:text-auroraCyan transition">Home</a>
+                <a href="#about" class="hover:text-auroraCyan transition">About Us</a>
+                <a href="#requirements" class="hover:text-auroraCyan transition">Syarat</a>
+                <a href="#register" class="hover:text-auroraCyan transition">Daftar Gen 2</a>
+                <a href="#community" class="hover:text-auroraCyan transition">Komunitas</a>
+            </div>
+            <div>
+                <a href="#register" class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider btn-aurora text-black shadow-lg">Join Squad</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION (VIDEO BANNER) -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Video & Fallback Image -->
+        <div class="absolute inset-0 z-0">
+            <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-50" poster="https://files.catbox.moe/r30z0f.jpg">
+                <source src="https://files.catbox.moe/z2gelq.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-b from-darkBg/70 via-darkBg/50 to-darkBg"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center py-20 flex flex-col items-center">
+            <!-- Logo bulat placeholder -->
+            <div class="w-28 h-28 md:w-36 md:h-36 rounded-full p-1 bg-gradient-to-r from-neonPurple via-auroraCyan to-goldColor shadow-2xl mb-6 animate-pulse">
+                <img src="https://files.catbox.moe/r30z0f.jpg" alt="Logo Ethrénal Aurora" class="w-full h-full object-cover rounded-full">
+            </div>
+
+            <div class="inline-block px-4 py-1 mb-4 rounded-full glass-card text-goldColor text-xs md:text-sm font-semibold tracking-widest uppercase">
+                <i class="fas fa-crown mr-1"></i> Squad ID: 13137790 | SQ: 211 Shionyou
+            </div>
+
+            <h1 class="font-cinzel font-black text-4xl sm:text-6xl md:text-7xl tracking-wider mb-4 aurora-glow text-transparent bg-clip-text bg-gradient-to-r from-white via-auroraCyan to-neonPurple">
+                ETHRÉNAL<span class="text-goldColor">`</span>AURORA
+            </h1>
+
+            <p class="font-cinzel text-lg sm:text-2xl text-goldColor tracking-widest mb-6 gold-glow italic">
+                "Born in Dusk, Shine like Aurora."
+            </p>
+
+            <p class="max-w-2xl text-gray-300 text-sm sm:text-base mb-10 leading-relaxed font-poppins">
+                We Don't Just Play, We Dominate. <span class="text-auroraCyan font-semibold">Open Member Gen 2 is Now Open!</span> Siapkah kamu menjadi bagian dari keluarga besar kami?
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md">
+                <a href="#register" class="w-full sm:w-auto px-8 py-4 rounded-full font-bold text-sm tracking-wider uppercase btn-aurora text-black shadow-xl text-center">
+                    <i class="fas fa-user-plus mr-2"></i> DAFTAR SEKARANG
+                </a>
+                <a href="https://chat.whatsapp.com/HVBJD980dho145WNLY6JCQ?mode=gi_t" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-full font-bold text-sm tracking-wider uppercase glass-card hover:border-auroraCyan text-white transition text-center">
+                    <i class="fab fa-whatsapp mr-2 text-green-400"></i> JOIN WHATSAPP
+                </a>
+            </div>
+
+            <div class="mt-8">
+                <a href="https://www.tiktok.com/@officialethrenal211auro0" target="_blank" class="text-xs text-gray-400 hover:text-auroraCyan transition flex items-center justify-center gap-2">
+                    <i class="fab fa-tiktok text-auroraCyan text-base"></i> Wajib Follow TikTok Resmi: <span class="text-white underline font-semibold">@officialethrenal211auro0</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. ABOUT US -->
+    <section id="about" class="py-24 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 relative z-10">
+            <div class="glass-card p-8 md:p-12 rounded-3xl relative overflow-hidden">
+                <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-neonPurple/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -left-20 -top-20 w-64 h-64 bg-auroraCyan/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="text-center mb-8">
+                    <span class="text-auroraCyan font-cinzel tracking-widest text-xs uppercase">Who We Are</span>
+                    <h2 class="font-cinzel font-bold text-3xl md:text-4xl mt-2 text-white">ABOUT OUR FAMILY</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-neonPurple to-auroraCyan mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <p class="text-gray-300 text-base md:text-lg leading-relaxed text-center max-w-3xl mx-auto">
+                    <strong class="text-auroraCyan font-cinzel">ETHRÉNAL`AURORA</strong> bukan sekadar squad MLBB. Kami adalah keluarga yang solid, loyal, anti drama, dan fokus berkembang bersama. Tempat terbaik untuk push rank, scrim, MCL, dan jadi pro player bersama.
+                </p>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 text-center">
+                    <div class="glass-card p-6 rounded-2xl">
+                        <i class="fas fa-shield-alt text-3xl text-goldColor mb-3"></i>
+                        <h4 class="font-bold text-lg font-cinzel">Solid & Loyal</h4>
+                        <p class="text-xs text-gray-400 mt-1">Saling support di segala kondisi</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <i class="fas fa-ban text-3xl text-red-400 mb-3"></i>
+                        <h4 class="font-bold text-lg font-cinzel">Anti Drama</h4>
+                        <p class="text-xs text-gray-400 mt-1">Lingkungan positif & nyaman</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <i class="fas fa-trophy text-3xl text-auroraCyan mb-3"></i>
+                        <h4 class="font-bold text-lg font-cinzel">Competitive</h4>
+                        <p class="text-xs text-gray-400 mt-1">Fokus turnamen & high rank</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <i class="fas fa-users text-3xl text-neonPurple mb-3"></i>
+                        <h4 class="font-bold text-lg font-cinzel">Keluarga</h4>
+                        <p class="text-xs text-gray-400 mt-1">Mabar aktif setiap hari</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SYARAT SELEKSI -->
+    <section id="requirements" class="py-24 bg-darkBg/50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-goldColor font-cinzel tracking-widest text-xs uppercase">Requirements</span>
+                <h2 class="font-cinzel font-bold text-3xl md:text-5xl mt-2">SYARAT SELEKSI GEN 2</h2>
+                <p class="text-gray-400 text-sm mt-3">Pastikan kamu memenuhi kriteria di bawah ini sebelum mendaftar.</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-goldColor to-neonPurple mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="glass-card p-6 rounded-2xl flex items-start space-x-4">
+                    <div class="p-3 bg-neonPurple/20 text-auroraCyan rounded-xl text-xl flex-shrink-0">
+                        <i class="fas fa-user-clock"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-cinzel font-bold text-lg mb-1">Min Umur 15 Tahun+</h3>
+                        <p class="text-xs text-gray-300">Memiliki sikap mental yang matang, dewasa, dan tidak ke kanak-kanakan.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-6 rounded-2xl flex items-start space-x-4">
+                    <div class="p-3 bg-goldColor/20 text-goldColor rounded-xl text-xl flex-shrink-0">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-cinzel font-bold text-lg mb-1">Min Rank Mythic Glory</h3>
+                        <p class="text-xs text-gray-300">Berpengalaman di tier tinggi, menguasai gameplay meta saat ini.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-6 rounded-2xl flex items-start space-x-4">
+                    <div class="p-3 bg-auroraCyan/20 text-auroraCyan rounded-xl text-xl flex-shrink-0">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-cinzel font-bold text-lg mb-1">Hero & Role Kuasai</h3>
+                        <p class="text-xs text-gray-300">Minimal 4+ Hero Meta dan menguasai minimal 2 Role dengan baik.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-card p-6 rounded-2xl flex items-start space-x-4">
+                    <div class="p-3 bg-neonPurple/20 text-neonPurple rounded-xl text-xl flex-shrink-0">
+                        <i class="fas fa-signature"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-cinzel font-bold text-lg mb-1">Wajib CN / Ganti Nama</h3>
+                        <p class="text-xs text-gray-300">Format CN: <code class="text-auroraCyan">ethrénal`namamu</code> (Siap ganti nama setelah diterima).</p>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="glass-card p-6 rounded-2xl flex items-start space-x-4">
+                    <div class="p-3 bg-goldColor/20 text-goldColor rounded-xl text-xl flex-shrink-0">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-cinzel font-bold text-lg mb-1">Wajib Isi Bio TikTok / IG</h3>
+                        <p class="text-xs text-gray-300">Tulis <code class="text-goldColor">𝐩𝐚𝐫𝐭 𝐨𝐟 𝐭𝐡𝐞 𝐜𝐫𝐞𝐚𝐭𝐨𝐫 ETHRENAL`AURORA</code> di Bio akun sosmed kamu.</p>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="glass-card p-6 rounded-2xl flex items-start space-x-4">
+                    <div class="p-3 bg-auroraCyan/20 text-auroraCyan rounded-xl text-xl flex-shrink-0">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-cinzel font-bold text-lg mb-1">Akun TikTok & Hastag</h3>
+                        <p class="text-xs text-gray-300">Wajib Follow TikTok resmi dan gunakan hashtag <code class="text-auroraCyan">#ethrénal`Aurora</code>.</p>
+                    </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="glass-card p-6 rounded-2xl flex items-start space-x-4">
+                    <div class="p-3 bg-red-500/20 text-red-400 rounded-xl text-xl flex-shrink-0">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-cinzel font-bold text-lg mb-1">Anti Drama & Toxic</h3>
+                        <p class="text-xs text-gray-300">Zero tolerance untuk toxic player. <strong class="text-white">No Double Clan / Squad!</strong></p>
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="glass-card p-6 rounded-2xl flex items-start space-x-4">
+                    <div class="p-3 bg-green-500/20 text-green-400 rounded-xl text-xl flex-shrink-0">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-cinzel font-bold text-lg mb-1">Wajib Aktif Komunitas</h3>
+                        <p class="text-xs text-gray-300">Aktif berpartisipasi di WhatsApp Community & Server Discord squad.</p>
+                    </div>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="glass-card p-6 rounded-2xl flex items-start space-x-4">
+                    <div class="p-3 bg-goldColor/20 text-goldColor rounded-xl text-xl flex-shrink-0">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-cinzel font-bold text-lg mb-1">Sifat & Keaktifan</h3>
+                        <p class="text-xs text-gray-300">Dewasa, solid, loyal, dan selalu siap mabar bersama member lain.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TikTok Follow Banner Box -->
+            <div class="mt-12 text-center">
+                <a href="https://www.tiktok.com/@officialethrenal211auro0" target="_blank" class="inline-flex items-center gap-3 px-6 py-3 rounded-full glass-card border-auroraCyan text-auroraCyan hover:bg-auroraCyan hover:text-black font-bold transition duration-300">
+                    <i class="fab fa-tiktok text-xl"></i> Klik Di Sini Untuk Follow Akun TikTok Resmi (@officialethrenal211auro0)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FORM PENDAFTARAN -->
+    <section id="register" class="py-24 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+            <div class="glass-card p-8 md:p-14 rounded-3xl border-neonPurple/50 relative">
+                <div class="absolute top-0 right-0 transform translate-x-4 -translate-y-4 w-32 h-32 bg-auroraCyan/20 rounded-full blur-2xl pointer-events-none"></div>
+
+                <div class="text-center mb-10">
+                    <span class="text-auroraCyan font-cinzel tracking-widest text-xs uppercase">Registration Form</span>
+                    <h2 class="font-cinzel font-bold text-3xl md:text-4xl mt-2">FORMULIR PENDAFTARAN GEN 2</h2>
+                    <p class="text-gray-400 text-sm mt-2">Isi data diri kamu dengan benar dan valid untuk dikirimkan langsung ke Founder!</p>
+                    <div class="w-24 h-1 bg-gradient-to-r from-auroraCyan to-goldColor mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <form id="registrationForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Nama Lengkap -->
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-auroraCyan mb-2">Nama Lengkap *</label>
+                            <input type="text" id="nama" required placeholder="Contoh: Alex Pratama" class="w-full bg-darkBg/80 border border-neonPurple/40 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-auroraCyan transition">
+                        </div>
+
+                        <!-- Umur -->
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-auroraCyan mb-2">Umur (Tahun) *</label>
+                            <input type="number" id="umur" min="15" required placeholder="Contoh: 18" class="w-full bg-darkBg/80 border border-neonPurple/40 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-auroraCyan transition">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Nickname MLBB + ID -->
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-auroraCyan mb-2">Nickname MLBB + ID (server) *</label>
+                            <input type="text" id="nick" required placeholder="Contoh: E'A · Aurora (123456789 [1234])" class="w-full bg-darkBg/80 border border-neonPurple/40 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-auroraCyan transition">
+                        </div>
+
+                        <!-- Rank Saat Ini -->
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-auroraCyan mb-2">Rank Saat Ini *</label>
+                            <select id="rank" required class="w-full bg-darkBg border border-neonPurple/40 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-auroraCyan transition">
+                                <option value="" disabled selected>Pilih Rank</option>
+                                <option value="Mythic Glory">Mythic Glory</option>
+                                <option value="Mythic Immortal">Mythic Immortal</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Role Utama -->
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-auroraCyan mb-2">Role Utama *</label>
+                            <select id="role" required class="w-full bg-darkBg border border-neonPurple/40 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-auroraCyan transition">
+                                <option value="" disabled selected>Pilih Role Utama</option>
+                                <option value="EXP Laner">EXP Laner</option>
+                                <option value="Jungler">Jungler</option>
+                                <option value="Mid Laner">Mid Laner</option>
+                                <option value="Gold Laner">Gold Laner</option>
+                                <option value="Roamer">Roamer</option>
+                            </select>
+                        </div>
+
+                        <!-- Jumlah Hero -->
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-auroraCyan mb-2">Jumlah Hero Meta Dikuasai *</label>
+                            <input type="number" id="hero" min="4" required placeholder="Contoh: 6" class="w-full bg-darkBg/80 border border-neonPurple/40 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-auroraCyan transition">
+                        </div>
+                    </div>
+
+                    <!-- Akun TikTok / Instagram -->
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-auroraCyan mb-2">Akun TikTok / Instagram (Opsional)</label>
+                        <input type="text" id="tiktok" placeholder="Contoh: @tiktok_user / @ig_user" class="w-full bg-darkBg/80 border border-neonPurple/40 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-auroraCyan transition">
+                    </div>
+
+                    <!-- Alasan Ingin Join -->
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-auroraCyan mb-2">Alasan Ingin Join *</label>
+                        <textarea id="alasan" rows="3" required placeholder="Tuliskan alasan singkat kenapa ingin bergabung dengan ETHRÉNAL`AURORA..." class="w-full bg-darkBg/80 border border-neonPurple/40 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-auroraCyan transition resize-none"></textarea>
+                    </div>
+
+                    <!-- Siap Ganti Nama -->
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-auroraCyan mb-2">Siap Ganti Nama (CN: ethrénal`namamu)? *</label>
+                        <div class="flex gap-6 mt-2">
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="radio" name="siapCN" value="Ya, Siap" required class="text-auroraCyan focus:ring-auroraCyan h-4 w-4">
+                                <span class="text-sm text-gray-200">Ya, Siap</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="radio" name="siapCN" value="Tidak" class="text-auroraCyan focus:ring-auroraCyan h-4 w-4">
+                                <span class="text-sm text-gray-200">Tidak</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Checkbox Persetujuan -->
+                    <div class="flex items-start space-x-3 pt-2">
+                        <input type="checkbox" id="agreement" required class="mt-1 text-auroraCyan rounded focus:ring-auroraCyan h-4 w-4">
+                        <label for="agreement" class="text-xs text-gray-300 leading-relaxed cursor-pointer">
+                            Saya berjanji anti drama, patuh pada rules, siap aktif, dan menghormati seluruh member serta founder <strong class="text-auroraCyan">ETHRÉNAL`AURORA</strong>.
+                        </label>
+                    </div>
+
+                    <!-- Tombol Kirim -->
+                    <div class="pt-4">
+                        <button type="submit" class="w-full py-4 rounded-2xl font-cinzel font-bold text-base tracking-wider uppercase btn-aurora text-black shadow-2xl transition flex items-center justify-center gap-3">
+                            <i class="fab fa-whatsapp text-xl"></i> SAYA SIAP JOIN - KIRIM KE WHATSAPP
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Post-Submission Founder Contacts Container (Hidden by default) -->
+                <div id="founder-contacts" class="hidden mt-8 p-6 rounded-2xl bg-darkBg/90 border border-auroraCyan/50 text-center animate-fade-in">
+                    <div class="w-12 h-12 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center text-xl mx-auto mb-3">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h3 class="font-cinzel font-bold text-xl text-auroraCyan mb-2">Data Pendaftaran Siap Dikirim!</h3>
+                    <p class="text-xs text-gray-300 mb-6">Silakan pilih salah satu tombol founder di bawah ini untuk mengirim pesan pendaftaran Anda ke WhatsApp:</p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a id="btn-founder-1" href="#" target="_blank" class="px-6 py-3 bg-green-600 hover:bg-green-500 text-white rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition">
+                            <i class="fab fa-whatsapp"></i> Founder 1: Niellxyn (Online 24 Jam)
+                        </a>
+                        <a id="btn-founder-2" href="#" target="_blank" class="px-6 py-3 bg-green-700 hover:bg-green-600 text-white rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition">
+                            <i class="fab fa-whatsapp"></i> Founder 2: Tasya
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. KOMUNITAS -->
+    <section id="community" class="py-24 bg-darkBg/50 relative">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-auroraCyan font-cinzel tracking-widest text-xs uppercase">Connect With Us</span>
+                <h2 class="font-cinzel font-bold text-3xl md:text-5xl mt-2">KOMUNITAS KAMI</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-auroraCyan to-neonPurple mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- WhatsApp Community Card -->
+                <div class="glass-card p-8 rounded-3xl text-center flex flex-col items-center justify-between hover:border-green-400/50 transition">
+                    <div>
+                        <div class="w-16 h-16 bg-green-500/20 text-green-400 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6 shadow-inner">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3 class="font-cinzel font-bold text-2xl mb-3">WhatsApp Community</h3>
+                        <p class="text-xs text-gray-300 mb-6 leading-relaxed">
+                            Gabung ke grup komunitas utama kami untuk info mabar harian, mcl, scrim, dan pengumuman squad resmi.
+                        </p>
+                    </div>
+                    <a href="https://chat.whatsapp.com/HVBJD980dho145WNLY6JCQ?mode=gi_t" target="_blank" class="w-full py-3.5 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg transition flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp text-base"></i> Gabung Grup WhatsApp
+                    </a>
+                </div>
+
+                <!-- Discord Server Card -->
+                <div class="glass-card p-8 rounded-3xl text-center flex flex-col items-center justify-between hover:border-indigo-400/50 transition">
+                    <div>
+                        <div class="w-16 h-16 bg-indigo-500/20 text-indigo-400 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6 shadow-inner">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <h3 class="font-cinzel font-bold text-2xl mb-3">Discord Server</h3>
+                        <p class="text-xs text-gray-300 mb-6 leading-relaxed">
+                            Server voice chat, room mabar terstruktur, dan tempat nongkrong asik sesama member squad.
+                        </p>
+                    </div>
+                    <a href="https://discord.gg/akgHgMEHs" target="_blank" class="w-full py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg transition flex items-center justify-center gap-2">
+                        <i class="fab fa-discord text-base"></i> Gabung Server Discord
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FOOTER -->
+    <footer class="py-12 border-t border-neonPurple/20 text-center relative z-10 bg-darkBg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-center space-x-3 mb-4">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-neonPurple to-auroraCyan flex items-center justify-center font-cinzel font-bold text-black text-sm">E`A</div>
+                <span class="font-cinzel font-bold tracking-wider text-auroraCyan">ETHRÉNAL<span class="text-goldColor">`</span>AURORA</span>
+            </div>
+            <p class="text-xs text-gray-400 mb-2">
+                Squad ID: <span class="text-white font-semibold">13137790</span> | SQ: <span class="text-white font-semibold">211 Shionyou</span>
+            </p>
+            <p class="text-xs text-gray-500">
+                Copyright © 2026 ETHRÉNAL`AURORA - All Rights Reserved. Community for ethrénal`Aurora.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Hide Loading Screen on window load
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loading-screen');
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        });
+
+        // Form Submission Logic
+        const registrationForm = document.getElementById('registrationForm');
+        registrationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form values
+            const nama = document.getElementById('nama').value;
+            const umur = document.getElementById('umur').value;
+            const nick = document.getElementById('nick').value;
+            const rank = document.getElementById('rank').value;
+            const role = document.getElementById('role').value;
+            const hero = document.getElementById('hero').value;
+            const tiktok = document.getElementById('tiktok').value || '-';
+            const siapCNElement = document.querySelector('input[name="siapCN"]:checked');
+            const siapCN = siapCNElement ? siapCNElement.value : 'Ya';
+            const alasan = document.getElementById('alasan').value;
+
+            // Construct exact message format
+            const pesan = `Halo Founder ETHRÉNAL\`AURORA! 👋\n\nSaya mau daftar member Gen 2.\n\n👤 Nama: ${nama}\n🍁 Umur: ${umur}\n🎮 Nick MLBB: ${nick}\n⭐ Rank: ${rank}\n⚔️ Role: ${role}\n🦸 Jumlah Hero: ${hero}\n📱 TikTok: ${tiktok}\n✅ Siap CN: ${siapCN}\n💬 Alasan: ${alasan}\n\nSaya sudah baca rules dan siap anti drama. Mohon dicek ya kak Founder!`;
+
+            const encodedMessage = encodeURIComponent(pesan);
+
+            // Founder WhatsApp Numbers
+            const waFounder1 = '6285602832687'; // Niellxyn
+            const waFounder2 = '6289677969051'; // Tasya
+
+            const linkFounder1 = `https://wa.me/${waFounder1}?text=${encodedMessage}`;
+            const linkFounder2 = `https://wa.me/${waFounder2}?text=${encodedMessage}`;
+
+            // Set href for direct buttons
+            document.getElementById('btn-founder-1').setAttribute('href', linkFounder1);
+            document.getElementById('btn-founder-2').setAttribute('href', linkFounder2);
+
+            // Show loading state or alert before opening WhatsApp
+            const submitBtn = registrationForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = `<i class="fas fa-spinner fa-spin mr-2"></i> Mengarahkan ke WhatsApp Founder...`;
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                // Open Founder 1 automatically
+                window.open(linkFounder1, '_blank');
+
+                // Show founder contact card below form so user can also reach Founder 2 easily
+                const founderContacts = document.getElementById('founder-contacts');
+                founderContacts.classList.remove('hidden');
+                founderContacts.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
